@@ -155,37 +155,6 @@ GitHub Actions
 
 Focused tests должны появляться и в предыдущих вертикалях. Финальный проход завершает и систематизирует стратегию, а не откладывает всё тестирование на конец.
 
-## Карта обучения и реализации
-
-B-модули изучаются порционно по мере потребности следующей вертикали.
-
-| Вертикаль | Знания до или во время реализации |
-|---|---|
-| Foundation | B01 dependency/error fundamentals; B02 HTTP foundation; B03 PostgreSQL foundation; B04 migrations |
-| Source onboarding | B01 boundaries; B02 Management API и protection; Security credentials/verifiers; B03 Source persistence |
-| Event acceptance | B01 error flow; B02 Ingestion authentication, validation и responses; Security Source authentication; B03 Event relationships |
-| Telegram delivery | B06 context, timeout и cancellation для external call; B01 error propagation; B03 Delivery persistence |
-| History | B02 list/detail/query semantics; B03 joins, filtering и retrieval |
-| Credential lifecycle | Security rotation; B05 atomicity и concurrent correctness |
-| Export и hard delete | B02 operation contracts; B03 history retrieval; B05 transactions и integrity |
-| Reliability | B05 transaction/index/concurrency concerns; B06 context, cancellation, timeouts и graceful shutdown |
-| Testing и completion | B07 unit, integration, HTTP, dependency substitution и failure-path testing |
-
-## Обратная карта модулей
-
-| Модуль | Где становится нужен |
-|---|---|
-| B01 — Interfaces / Errors | Foundation — Telegram delivery; границы зависимостей и error flow |
-| B02 — REST / Middleware | Foundation, Source onboarding, Event acceptance, History, Export и Delete |
-| B03 — PostgreSQL Fundamentals | Foundation и все data-bearing вертикали |
-| B04 — Go + PostgreSQL / Migrations | Сначала Foundation; затем каждое изменение schema через migrations |
-| B05 — Transactions / Indexes | Credential lifecycle, hard delete, integrity, concurrency и query-driven indexing |
-| B06 — Context / Concurrency | Telegram delivery и Reliability pass |
-| B07 — Testing | Локальные regression tests по ходу проекта и систематизация в completion pass |
-| Security — API Credentials & Secrets | Source onboarding, Event acceptance, Credential lifecycle и все Owner-protected operations |
-
-Базовая data integrity не ждёт B05: primary keys, foreign keys, required fields и uniqueness относятся к раннему PostgreSQL foundation. B05 добавляет более глубокую работу с transactions, indexes и concurrent correctness, когда появятся реальные операции и queries.
-
 ## Критерии завершения v1
 
 v1 завершена, когда:
