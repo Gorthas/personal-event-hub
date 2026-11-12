@@ -140,7 +140,7 @@ History вычисляет состояние доставки следующи�
 - [Границы API](docs/ru/api-boundaries.md) — смысловые операции без преждевременного endpoint design
 - [Безопасность](docs/ru/security.md) — credentials, trust boundaries, rotation и работа с секретами
 - [Модель отказов](docs/ru/failure-model.md) — гарантии, неоднозначные результаты и известные пробелы
-- [План реализации](docs/ru/implementation-plan.md) — последовательность вертикалей и учебные зависимости
+- [План реализации](docs/ru/implementation-plan.md) — последовательность вертикалей
 
 ## Roadmap
 
