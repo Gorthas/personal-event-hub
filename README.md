@@ -140,8 +140,7 @@ This list describes the approved v1 direction, not completed implementation.
 - [API Boundaries](docs/api-boundaries.md) — semantic operations without premature endpoint design
 - [Security](docs/security.md) — credentials, trust boundaries, rotation, and secret handling
 - [Failure Model](docs/failure-model.md) — guarantees, ambiguous outcomes, and known gaps
-- [Implementation Plan](docs/implementation-plan.md) — ordered verticals and learning dependencies
-
+- [Implementation Plan](docs/implementation-plan.md) — ordered verticals
 ## Roadmap
 
 - [x] Architecture and v1 design
