@@ -155,37 +155,6 @@ Planned coverage:
 
 The implementation should write focused tests during earlier verticals. This final pass completes and systematizes the strategy rather than postponing all testing until the end.
 
-## Learning and implementation map
-
-The B-modules are consumed incrementally as the next vertical requires them.
-
-| Implementation vertical | Knowledge needed before or during it |
-|---|---|
-| Foundation | B01 dependency/error fundamentals; B02 HTTP foundation; B03 PostgreSQL foundation; B04 migrations |
-| Source onboarding | B01 boundaries; B02 Management API and protection; Security credentials/verifiers; B03 Source persistence |
-| Event acceptance | B01 error flow; B02 Ingestion authentication, validation, and responses; Security Source authentication; B03 Event relationships |
-| Telegram delivery | B06 context, timeout, and cancellation for an external call; B01 error propagation; B03 Delivery persistence |
-| History | B02 list/detail/query semantics; B03 joins, filtering, and retrieval |
-| Credential lifecycle | Security rotation; B05 atomicity and concurrent correctness |
-| Export and hard delete | B02 operation contracts; B03 history retrieval; B05 transactions and integrity |
-| Reliability | B05 transaction/index/concurrency concerns; B06 context, cancellation, timeouts, and graceful shutdown |
-| Testing and completion | B07 unit, integration, HTTP, dependency substitution, and failure-path testing |
-
-## Reverse module map
-
-| Module | Where it becomes relevant |
-|---|---|
-| B01 — Interfaces / Errors | Foundation through Telegram delivery; defines dependency boundaries and error flow |
-| B02 — REST / Middleware | Foundation, Source onboarding, Event acceptance, History, Export, and Delete |
-| B03 — PostgreSQL Fundamentals | Foundation and all data-bearing verticals |
-| B04 — Go + PostgreSQL / Migrations | Foundation first; later schema changes continue through migrations |
-| B05 — Transactions / Indexes | Credential lifecycle, hard delete, integrity, concurrency, and query-driven indexing |
-| B06 — Context / Concurrency | Telegram delivery and the Reliability pass |
-| B07 — Testing | Used throughout for local regression tests and concentrated in the completion pass |
-| Security — API Credentials & Secrets | Source onboarding, Event acceptance, Credential lifecycle, and every Owner-protected operation |
-
-Basic data integrity does not wait for B05: primary keys, foreign keys, required fields, and uniqueness belong to the earlier PostgreSQL foundation. B05 adds deeper transactional, indexing, and concurrent-correctness work once real operations and queries exist.
-
 ## Completion criteria for v1
 
 v1 is complete when:
